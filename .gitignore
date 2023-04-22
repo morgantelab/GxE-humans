@@ -1,0 +1,8 @@
+G/*
+datasets/*
+logs/*
+results/*
+run/*
+*.RData
+slurm*
+log*
