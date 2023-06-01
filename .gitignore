@@ -6,3 +6,6 @@ run/*
 *.RData
 slurm*
 log*
+histograms_post/*
+histograms/*
+

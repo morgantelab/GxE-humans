@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=14
 #SBATCH --partition=fm-bigmem-2
 #SBATCH --time=400:00:00
-#SBATCH --mem=450G
+#SBATCH --mem=400G
 #SBATCH --array=11,12,13,14,15,16,17,18,19,20,101,102,103,104,105,106,107,108
 
 source /opt/intel/oneapi/mkl/2023.0.0/env/vars.sh intel64

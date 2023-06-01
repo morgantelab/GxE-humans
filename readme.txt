@@ -159,6 +159,8 @@ model 1:
 y = Xb + Za + e
 model 2:
 y = Xb + Wu + Za + e
+model 3:
+y = Xb + Wu + e
 where:
 y: dependent variable
 X and b: incidence matrix and vector of solutions for the design effect (8 age-sex classes), 'FIXED' non-penalised effect
@@ -170,7 +172,12 @@ note: when y is 101:127, the corresponding column of W is replaced with a vector
 
 # Subsets
 
-1: uses all records.
-2: ...
+1: Uses all records.
+11 to 20: Uses 4 random sets, all cohorts represented.
+101: Uses females' records.
+102: Uses males' records.
+103: Uses young people's records.
+104: Uses elder people's records.
+105 to 108: Uses four random cohorts.
 
 
