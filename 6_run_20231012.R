@@ -16,7 +16,7 @@ censcale <- function(x,A,B){(A+(((x-mean(x)))/sd(x))*B)}
 
 
 args <- as.numeric(commandArgs(TRUE))
-#args <- c(14, 8, 1,  1100, 100, 10,   100, 6)
+#args <- c(14, 17, 1,  1100, 100, 10,   100, 6)
 args
 
 
@@ -26,7 +26,7 @@ iter <- args[4]
 burnin <- args[5]
 thin <- args[6]
 gvar <- args[7]
-verb <- F
+verb <- T
 tol <- 0
 where <- paste("run",args[8],sep=''); where
 home <- "/data2/morgante_lab/ukbiobank_projects/GxE/run"
@@ -55,12 +55,6 @@ nrow(dt)
 
 
 
-
-if(args[2]%in%c(8,9,10)){
-#	iter <- iter*2
-#	burnin <- burnin*2
-#	thin <- thin*2
-}
 
 
 if(args[2]==8){
@@ -91,6 +85,179 @@ if(args[2]==10){
 	print(length(which(dt$ID!=eGEe2Ee2$ids)))
 	rm(eGEe2Ee2); gc()
 }
+
+
+
+
+
+if(args[2]==11){
+	load("../datasets/eG80EE_20230922.RData")
+	GEEmat <- eGEE$vectors
+	for(i in 1:ncol(GEEmat)){GEEmat[,i] <- GEEmat[,i]*eGEE$values[i]}
+	eGEEvars <- colnames(GEEmat) <- paste("GEE", 1:ncol(GEEmat), sep='.')
+	print(length(which(dt$ID!=eGEE$ids)))
+	rm(eGEE); gc()
+}
+
+
+if(args[2]==12){
+	load("../datasets/eG80EL2EL2_20230922.RData")
+	GEL2EL2mat <- eGEL2EL2$vectors
+	for(i in 1:ncol(GEL2EL2mat)){GEL2EL2mat[,i] <- GEL2EL2mat[,i]*eGEL2EL2$values[i]}
+	eGEL2EL2vars <- colnames(GEL2EL2mat) <- paste("GEL2EL2", 1:ncol(GEL2EL2mat), sep='.')
+	print(length(which(dt$ID!=eGEL2EL2$ids)))
+	rm(eGEL2EL2); gc()
+}
+
+
+if(args[2]==13){
+	load("../datasets/eG80Ee2Ee2_20230922.RData")
+	GEe2Ee2mat <- eGEe2Ee2$vectors
+	for(i in 1:ncol(GEe2Ee2mat)){GEe2Ee2mat[,i] <- GEe2Ee2mat[,i]*eGEe2Ee2$values[i]}
+	eGEe2Ee2vars <- colnames(GEe2Ee2mat) <- paste("GEe2Ee2", 1:ncol(GEe2Ee2mat), sep='.')
+	print(length(which(dt$ID!=eGEe2Ee2$ids)))
+	rm(eGEe2Ee2); gc()
+}
+
+
+
+
+if(args[2]==14){
+	load("../datasets/eG80EE_20231002.RData")
+	GEEmat <- eGEE$vectors
+	for(i in 1:ncol(GEEmat)){GEEmat[,i] <- GEEmat[,i]*eGEE$values[i]}
+	eGEEvars <- colnames(GEEmat) <- paste("GEE", 1:ncol(GEEmat), sep='.')
+	print(length(which(dt$ID!=eGEE$ids)))
+	rm(eGEE); gc()
+}
+
+
+
+if(args[2]==15){
+	load("../datasets/eG80EL2EL2_20231010.RData")
+	GEL2EL2mat <- eGEL2EL2$vectors
+	for(i in 1:ncol(GEL2EL2mat)){GEL2EL2mat[,i] <- GEL2EL2mat[,i]*eGEL2EL2$values[i]}
+	eGEL2EL2vars <- colnames(GEL2EL2mat) <- paste("GEL2EL2", 1:ncol(GEL2EL2mat), sep='.')
+	print(length(which(dt$ID!=eGEL2EL2$ids)))
+	rm(eGEL2EL2); gc()
+}
+
+
+
+if(args[2]==16){
+	load("../datasets/eG80Ee2Ee2_20231010.RData")
+	GEe2Ee2mat <- eGEe2Ee2$vectors
+	for(i in 1:ncol(GEe2Ee2mat)){GEe2Ee2mat[,i] <- GEe2Ee2mat[,i]*eGEe2Ee2$values[i]}
+	eGEe2Ee2vars <- colnames(GEe2Ee2mat) <- paste("GEe2Ee2", 1:ncol(GEe2Ee2mat), sep='.')
+	print(length(which(dt$ID!=eGEe2Ee2$ids)))
+	rm(eGEe2Ee2); gc()
+}
+
+
+
+if(args[2]==17){
+	load("../datasets/eG50EE_20231002.RData")
+	GEEmat <- eGEE$vectors
+	for(i in 1:ncol(GEEmat)){GEEmat[,i] <- GEEmat[,i]*eGEE$values[i]}
+	eGEEvars <- colnames(GEEmat) <- paste("GEE", 1:ncol(GEEmat), sep='.')
+	print(length(which(dt$ID!=eGEE$ids)))
+	rm(eGEE); gc()
+}
+
+
+
+if(args[2]==18){
+	load("../datasets/eG50EL2EL2_20231010.RData")
+	GEL2EL2mat <- eGEL2EL2$vectors
+	for(i in 1:ncol(GEL2EL2mat)){GEL2EL2mat[,i] <- GEL2EL2mat[,i]*eGEL2EL2$values[i]}
+	eGEL2EL2vars <- colnames(GEL2EL2mat) <- paste("GEL2EL2", 1:ncol(GEL2EL2mat), sep='.')
+	print(length(which(dt$ID!=eGEL2EL2$ids)))
+	rm(eGEL2EL2); gc()
+}
+
+
+
+if(args[2]==19){
+	load("../datasets/eG50Ee2Ee2_20231010.RData")
+	GEe2Ee2mat <- eGEe2Ee2$vectors
+	for(i in 1:ncol(GEe2Ee2mat)){GEe2Ee2mat[,i] <- GEe2Ee2mat[,i]*eGEe2Ee2$values[i]}
+	eGEe2Ee2vars <- colnames(GEe2Ee2mat) <- paste("GEe2Ee2", 1:ncol(GEe2Ee2mat), sep='.')
+	print(length(which(dt$ID!=eGEe2Ee2$ids)))
+	rm(eGEe2Ee2); gc()
+}
+
+
+
+if(args[2]==20){
+	load("../datasets/eG99EE_20231002.RData")
+	GEEmat <- eGEE$vectors
+	for(i in 1:ncol(GEEmat)){GEEmat[,i] <- GEEmat[,i]*eGEE$values[i]}
+	eGEEvars <- colnames(GEEmat) <- paste("GEE", 1:ncol(GEEmat), sep='.')
+	print(length(which(dt$ID!=eGEE$ids)))
+	rm(eGEE); gc()
+}
+
+
+
+if(args[2]==21){
+	load("../datasets/eG99EL2EL2_20231010.RData")
+	GEL2EL2mat <- eGEL2EL2$vectors
+	for(i in 1:ncol(GEL2EL2mat)){GEL2EL2mat[,i] <- GEL2EL2mat[,i]*eGEL2EL2$values[i]}
+	eGEL2EL2vars <- colnames(GEL2EL2mat) <- paste("GEL2EL2", 1:ncol(GEL2EL2mat), sep='.')
+	print(length(which(dt$ID!=eGEL2EL2$ids)))
+	rm(eGEL2EL2); gc()
+}
+
+
+
+if(args[2]==22){
+	load("../datasets/eG99Ee2Ee2_20231010.RData")
+	GEe2Ee2mat <- eGEe2Ee2$vectors
+	for(i in 1:ncol(GEe2Ee2mat)){GEe2Ee2mat[,i] <- GEe2Ee2mat[,i]*eGEe2Ee2$values[i]}
+	eGEe2Ee2vars <- colnames(GEe2Ee2mat) <- paste("GEe2Ee2", 1:ncol(GEe2Ee2mat), sep='.')
+	print(length(which(dt$ID!=eGEe2Ee2$ids)))
+	rm(eGEe2Ee2); gc()
+}
+
+
+
+
+
+if(args[2]==23){
+	load("../datasets/eG50EE_20231002.RData")
+	GEEmat <- eGEE$vectors
+	for(i in 1:ncol(GEEmat)){GEEmat[,i] <- GEEmat[,i]*eGEE$values[i]}
+	eGEEvars <- colnames(GEEmat) <- paste("GEE", 1:ncol(GEEmat), sep='.')
+	print(length(which(dt$ID!=eGEE$ids)))
+	rm(eGEE); gc()
+}
+
+
+
+if(args[2]==24){
+	load("../datasets/eG50EL2EL2_20231010.RData")
+	GEL2EL2mat <- eGEL2EL2$vectors
+	for(i in 1:ncol(GEL2EL2mat)){GEL2EL2mat[,i] <- GEL2EL2mat[,i]*eGEL2EL2$values[i]}
+	eGEL2EL2vars <- colnames(GEL2EL2mat) <- paste("GEL2EL2", 1:ncol(GEL2EL2mat), sep='.')
+	print(length(which(dt$ID!=eGEL2EL2$ids)))
+	rm(eGEL2EL2); gc()
+}
+
+
+
+if(args[2]==25){
+	load("../datasets/eG50Ee2Ee2_20231010.RData")
+	GEe2Ee2mat <- eGEe2Ee2$vectors
+	for(i in 1:ncol(GEe2Ee2mat)){GEe2Ee2mat[,i] <- GEe2Ee2mat[,i]*eGEe2Ee2$values[i]}
+	eGEe2Ee2vars <- colnames(GEe2Ee2mat) <- paste("GEe2Ee2", 1:ncol(GEe2Ee2mat), sep='.')
+	print(length(which(dt$ID!=eGEe2Ee2$ids)))
+	rm(eGEe2Ee2); gc()
+}
+
+
+
+
+
 
 
 
@@ -599,7 +766,7 @@ if(args[2]==8){
   varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
   varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
   varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
-  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$GE$X%*%t(B4), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
  
   setwd(home) 
   
@@ -612,7 +779,7 @@ if(args[2]==8){
   BETA[[3]] <- B3
   BETA[[4]] <- B4
 
-  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
 
   preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
   save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
@@ -633,7 +800,7 @@ if(args[2]==9){
   
   ETA <- list(X=list(X=Xmat, model="FIXED", saveEffects=TRUE), 
               G=list(X=Gmat, model="BRR", saveEffects=TRUE), 
-              E=list(X=Emat, model="BRR", saveEffects=TRUE),
+              E=list(X=EL2mat, model="BRR", saveEffects=TRUE),
               GE=list(X=GEL2EL2mat, model="BRR", saveEffects=TRUE)
   )
    rm(Xmat, Emat, Gmat, EL2mat, Ee2mat, GEL2EL2mat); gc()
@@ -657,7 +824,7 @@ if(args[2]==9){
   varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
   varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
   varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
-  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$GE$X%*%t(B4), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
  
   setwd(home) 
   
@@ -670,7 +837,7 @@ if(args[2]==9){
   BETA[[3]] <- B3
   BETA[[4]] <- B4
 
-  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
 
   preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
   save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
@@ -691,7 +858,7 @@ if(args[2]==10){
   
   ETA <- list(X=list(X=Xmat, model="FIXED", saveEffects=TRUE), 
               G=list(X=Gmat, model="BRR", saveEffects=TRUE), 
-              E=list(X=Emat, model="BRR", saveEffects=TRUE),
+              E=list(X=Ee2mat, model="BRR", saveEffects=TRUE),
               GE=list(X=GEe2Ee2mat, model="BRR", saveEffects=TRUE)
   )
    rm(Xmat, Emat, Gmat, EL2mat, Ee2mat, GEe2Ee2mat); gc()
@@ -715,7 +882,7 @@ if(args[2]==10){
   varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
   varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
   varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
-  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$GE$X%*%t(B4), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
  
   setwd(home) 
   
@@ -728,7 +895,7 @@ if(args[2]==10){
   BETA[[3]] <- B3
   BETA[[4]] <- B4
 
-  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
 
   preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
   save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
@@ -741,6 +908,174 @@ if(args[2]==10){
 
 
 
+
+
+if(args[2]%in%c(11,14,17,20,23)){
+  
+  
+  ETA <- list(X=list(X=Xmat, model="FIXED", saveEffects=TRUE), 
+              G=list(X=Gmat, model="BRR", saveEffects=TRUE), 
+              E=list(X=Emat, model="BRR", saveEffects=TRUE),
+              GE=list(X=GEEmat, model="BRR", saveEffects=TRUE)
+  )
+   rm(Xmat, Emat, Gmat, EL2mat, Ee2mat, GEEmat); gc()
+
+  
+  model <- BGLR(y=phen, ETA=ETA, nIter=iter, burnIn=burnin, thin=thin, verbose=verb, saveAt=paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_', sep=''))
+  
+  zz0 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_mu.dat', sep=''), header=F); colnames(zz0) <- "int"
+  zz1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_varB.dat', sep=''), header=F); colnames(zz1) <- "G"
+  zz2 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_varB.dat', sep=''), header=F); colnames(zz2) <- "E"
+  zz3 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_varB.dat', sep=''), header=F); colnames(zz3) <- "GE"
+  zz9 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_varE.dat', sep=''), header=F); colnames(zz9) <- "res"
+  VCEm <- data.frame(zz0, zz1, zz2, zz3, zz9)
+  
+  B1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_X_b.dat', sep=''), header=T)
+  B2 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_b.bin', sep=''))
+  B3 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_b.bin', sep=''))
+  B4 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_b.bin', sep=''))
+  
+  varabs <- matrix(NA, nrow(VCEm), 4); colnames(varabs) <- c("Vdes", "Vgen", "Venv", "Vgenenv")
+  varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
+  varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
+  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
+ 
+  setwd(home) 
+  
+  VCE <- data.frame(VCEm, varabs)
+  save(VCE, file=paste(paste(where, '_results/VCE_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+  
+  BETA <- list()
+  BETA[[1]] <- B1
+  BETA[[2]] <- B2
+  BETA[[3]] <- B3
+  BETA[[4]] <- B4
+
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+
+  preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
+  save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+ 
+  rm(ETA, model, zz0, zz1, zz2, zz3, zz9, B1, B2, B3, B4, varabs, VCE, VCEm)
+  
+}
+
+
+
+
+
+
+
+
+if(args[2]%in%c(12,15,18,21,24)){
+  
+  
+  ETA <- list(X=list(X=Xmat, model="FIXED", saveEffects=TRUE), 
+              G=list(X=Gmat, model="BRR", saveEffects=TRUE), 
+              E=list(X=EL2mat, model="BRR", saveEffects=TRUE),
+              GE=list(X=GEL2EL2mat, model="BRR", saveEffects=TRUE)
+  )
+   rm(Xmat, Emat, Gmat, EL2mat, Ee2mat, GEL2EL2mat); gc()
+
+  
+  model <- BGLR(y=phen, ETA=ETA, nIter=iter, burnIn=burnin, thin=thin, verbose=verb, saveAt=paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_', sep=''))
+  
+  zz0 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_mu.dat', sep=''), header=F); colnames(zz0) <- "int"
+  zz1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_varB.dat', sep=''), header=F); colnames(zz1) <- "G"
+  zz2 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_varB.dat', sep=''), header=F); colnames(zz2) <- "E"
+  zz3 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_varB.dat', sep=''), header=F); colnames(zz3) <- "GE"
+  zz9 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_varE.dat', sep=''), header=F); colnames(zz9) <- "res"
+  VCEm <- data.frame(zz0, zz1, zz2, zz3, zz9)
+  
+  B1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_X_b.dat', sep=''), header=T)
+  B2 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_b.bin', sep=''))
+  B3 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_b.bin', sep=''))
+  B4 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_b.bin', sep=''))
+  
+  varabs <- matrix(NA, nrow(VCEm), 4); colnames(varabs) <- c("Vdes", "Vgen", "Venv", "Vgenenv")
+  varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
+  varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
+  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
+ 
+  setwd(home) 
+  
+  VCE <- data.frame(VCEm, varabs)
+  save(VCE, file=paste(paste(where, '_results/VCE_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+  
+  BETA <- list()
+  BETA[[1]] <- B1
+  BETA[[2]] <- B2
+  BETA[[3]] <- B3
+  BETA[[4]] <- B4
+
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+
+  preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
+  save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+ 
+  rm(ETA, model, zz0, zz1, zz2, zz3, zz9, B1, B2, B3, B4, varabs, VCE, VCEm)
+  
+}
+
+
+
+
+
+
+
+
+if(args[2]%in%c(13,16,19,22,25)){
+  
+  
+  ETA <- list(X=list(X=Xmat, model="FIXED", saveEffects=TRUE), 
+              G=list(X=Gmat, model="BRR", saveEffects=TRUE), 
+              E=list(X=Ee2mat, model="BRR", saveEffects=TRUE),
+              GE=list(X=GEe2Ee2mat, model="BRR", saveEffects=TRUE)
+  )
+   rm(Xmat, Emat, Gmat, EL2mat, Ee2mat, GEe2Ee2mat); gc()
+
+  
+  model <- BGLR(y=phen, ETA=ETA, nIter=iter, burnIn=burnin, thin=thin, verbose=verb, saveAt=paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_', sep=''))
+  
+  zz0 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_mu.dat', sep=''), header=F); colnames(zz0) <- "int"
+  zz1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_varB.dat', sep=''), header=F); colnames(zz1) <- "G"
+  zz2 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_varB.dat', sep=''), header=F); colnames(zz2) <- "E"
+  zz3 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_varB.dat', sep=''), header=F); colnames(zz3) <- "GE"
+  zz9 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_varE.dat', sep=''), header=F); colnames(zz9) <- "res"
+  VCEm <- data.frame(zz0, zz1, zz2, zz3, zz9)
+  
+  B1 <- read.table(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_X_b.dat', sep=''), header=T)
+  B2 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_G_b.bin', sep=''))
+  B3 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_E_b.bin', sep=''))
+  B4 <- readBinMat(paste(scratch, '/run_', args[1], '_', args[2], '_', args[3], '_ETA_GE_b.bin', sep=''))
+  
+  varabs <- matrix(NA, nrow(VCEm), 4); colnames(varabs) <- c("Vdes", "Vgen", "Venv", "Vgenenv")
+  varabs[, 1] <- apply(ETA$X$X%*%t(B1), 2, var)
+  varabs[-c(1:(burnin/thin)), 2] <- apply(ETA$G$X%*%t(B2), 2, var)
+  varabs[-c(1:(burnin/thin)), 3] <- apply(ETA$E$X%*%t(B3), 2, var)
+  varabs[-c(1:(burnin/thin)), 4] <- apply(ETA$GE$X%*%t(B4), 2, var)
+ 
+  setwd(home) 
+  
+  VCE <- data.frame(VCEm, varabs)
+  save(VCE, file=paste(paste(where, '_results/VCE_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+  
+  BETA <- list()
+  BETA[[1]] <- B1
+  BETA[[2]] <- B2
+  BETA[[3]] <- B3
+  BETA[[4]] <- B4
+
+#  if(args[3]==1){save(BETA, file=paste(paste(where, '_results/BETA_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))}
+
+  preds	<- data.frame(preds, y=model$y, yHat=model$yHat)
+  save(preds, file=paste(paste(where, '_results/PREDS_', args[1], '_', args[2], '_', args[3], '.RData', sep='')))
+ 
+  rm(ETA, model, zz0, zz1, zz2, zz3, zz9, B1, B2, B3, B4, varabs, VCE, VCEm)
+  
+}
 
 
 

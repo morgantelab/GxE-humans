@@ -1,18 +1,18 @@
 #!/bin/bash
 #
 #SBATCH --job-name=VCE
-#SBATCH --cpus-per-task=6
+#SBATCH --cpus-per-task=16
 #SBATCH --partition=fm-bigmem-2
-#SBATCH --time=600:00:00
-#SBATCH --mem=500G
+#SBATCH --time=800:00:00
+#SBATCH --mem=450G
 
 
 source /opt/intel/oneapi/mkl/2023.0.0/env/vars.sh intel64
 
 module load R/4.2.3
 
-export MKL_NUM_THREADS=6
-export OMP_NUM_THREADS=6
+export MKL_NUM_THREADS=16
+export OMP_NUM_THREADS=16
 
 
 nohup R CMD BATCH "--args  10 7 11       30000 5000 25   100   5" 4_run_20230705.R  logs/log4_10_7_11.txt
