@@ -2,10 +2,15 @@ G/*
 datasets/*
 logs/*
 results/*
+reports/*
 run/*
 *.RData
+*.Rout
 slurm*
 log*
 histograms_post/*
 histograms/*
-
+**/.RData
+*.err
+*.out
+*.swp
