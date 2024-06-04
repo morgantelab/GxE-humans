@@ -6,6 +6,9 @@ reports/*
 run/*
 *.RData
 *.Rout
+*.R
+*.sh
+*.sbatch
 slurm*
 log*
 histograms_post/*
