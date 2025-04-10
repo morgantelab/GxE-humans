@@ -113,24 +113,12 @@ dtt <- subset(dtt, !is.na(waist)); nrow(dtt) # waist circumference
 
 ### Adding pressure if medication ###
 
-table(dtt$medicat1)  
-table(dtt$medicat2)  
-table(dtt$medicat3) 
-table(dtt$mediblood1)
-table(dtt$mediblood2) 
-table(dtt$mediblood1,dtt$mediblood2) 
-summary(dtt$mediblood1)
-summary(dtt$mediblood2) 
-length(which(dtt$mediblood1==1 | dtt$mediblood2==1))/nrow(dtt)
 dtt$add.med10 <- dtt$add.med15 <- 0
-dtt$add.med10 <- replace(dtt$add.med10, dtt$mediblood1==1 | dtt$mediblood2==1, 10)
-dtt$add.med15 <- replace(dtt$add.med15, dtt$mediblood1==1 | dtt$mediblood2==1, 15)
-summary(dtt$add.med10)
-summary(dtt$add.med15)
-dtt$SP0a <- dtt$SP0a+dtt$add.med10
-dtt$DP0a <- dtt$DP0a+dtt$add.med15
+dtt$add.med10 <- replace(dtt$add.med10, dtt$mediblood1==1 | dtt$mediblood2==1 | dtt$mediblood3==1 | dtt$mediblood4==1, 10)
+dtt$add.med15 <- replace(dtt$add.med15, dtt$mediblood1==1 | dtt$mediblood2==1 | dtt$mediblood3==1 | dtt$mediblood4==1, 15)
+dtt$SP0a <- dtt$SP0a+dtt$add.med15
+dtt$DP0a <- dtt$DP0a+dtt$add.med10
 dtt$PP0a <- dtt$SP0a-dtt$DP0a
-
 
 
 
@@ -182,12 +170,7 @@ table(dtt$coh)
 
 
 
-table(dtt$ethn1_white)
 table(dtt$ethn1_whbri)
-table(dtt$ethn1_black)
-table(dtt$ethn1_asian)
-table(dtt$ethn1_mixed)
-
 
 ## Creating 8 random subsets, same number as the cohorts ##
 dtt$sub <- sample(11:18, nrow(dtt), replace=T)

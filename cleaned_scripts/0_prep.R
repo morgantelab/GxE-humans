@@ -95,17 +95,13 @@ dat$ethn1 <- dat$'V21000-0.0'
 dat$ethn1 <- replace(dat$ethn1, dat$ethn1%in%c(-1,-3), NA)
 dat$ethn2 <- dat$'V22006-0.0'
 dat$ethn1_whbri <- ifelse(dat$ethn1%in%c(   1001                  ), 1, 0)
-dat$ethn1_white <- ifelse(dat$ethn1%in%c(1, 1001, 2001, 3001, 4001), 1, 0)
-dat$ethn1_mixed <- ifelse(dat$ethn1%in%c(2, 1002, 2002, 3002, 4002), 1, 0)
-dat$ethn1_asian <- ifelse(dat$ethn1%in%c(3, 1003, 2003, 3003, 4003), 1, 0)
-dat$ethn1_black <- ifelse(dat$ethn1%in%c(4, 1004, 2004, 3004, 4004), 1, 0)
 
 
 # Age phenotyping, recruitment # V21003-0.0 V21022-0.0
 dat$AOP <- dat$'V21003-0.0'
 dat$AOR <- dat$'V21022-0.0'
 
-Ivars <- c("ID", "Sex_SI", "Sex_gen", "YOB", "MOB", "DOF", "COF", "ethn1", "ethn1_white", "ethn1_whbri", "ethn1_mixed", "ethn1_asian", "ethn1_black", "ethn2", "AOP", "AOR")
+Ivars <- c("ID", "Sex_SI", "Sex_gen", "YOB", "MOB", "DOF", "COF", "ethn1", "ethn1_whbri", "ethn2", "AOP", "AOR")
 data.frame(Ivars,Ivars%in%colnames(dat))
 
 
@@ -216,15 +212,45 @@ dat$falls <- replace(dat$falls, dat$'V2296-0.0'%in%c(2,3), 1)
 
 # 6153-0.0	270845	Categorical (multiple)	Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones
 dat$mediblood1 <- 0
-dat$mediblood1 <- replace(dat$mediblood1, dat$'V6153-0.0'%in%c(-7,1,3), 0)
+dat$mediblood1 <- replace(dat$mediblood1, dat$'V6153-0.0'%in%c(-7,1,3,4,5), -1)
 dat$mediblood1 <- replace(dat$mediblood1, dat$'V6153-0.0'%in%c(-1, -3), NA)
 dat$mediblood1 <- replace(dat$mediblood1, dat$'V6153-0.0'%in%c(2), 1)
 
+# 6153-0.1	270845	Categorical (multiple)	Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones
+dat$mediblood3 <- 0
+dat$mediblood3 <- replace(dat$mediblood3, dat$'V6153-0.1'%in%c(-7,1,3,4,5), -1)
+dat$mediblood3 <- replace(dat$mediblood3, dat$'V6153-0.1'%in%c(-1, -3), NA)
+dat$mediblood3 <- replace(dat$mediblood3, dat$'V6153-0.1'%in%c(2), 1)
+
+# 6153-0.2	270845	Categorical (multiple)	Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones
+dat$mediblood5 <- 0
+dat$mediblood5 <- replace(dat$mediblood5, dat$'V6153-0.2'%in%c(-7,1,3,4,5), -1)
+dat$mediblood5 <- replace(dat$mediblood5, dat$'V6153-0.2'%in%c(-1, -3), NA)
+dat$mediblood5 <- replace(dat$mediblood5, dat$'V6153-0.2'%in%c(2), 1)
+
+# 6153-0.3	270845	Categorical (multiple)	Medication for cholesterol, blood pressure, diabetes, or take exogenous hormones
+dat$mediblood6 <- 0
+dat$mediblood6 <- replace(dat$mediblood6, dat$'V6153-0.3'%in%c(-7,1,3,4,5), -1)
+dat$mediblood6 <- replace(dat$mediblood6, dat$'V6153-0.3'%in%c(-1, -3), NA)
+dat$mediblood6 <- replace(dat$mediblood6, dat$'V6153-0.3'%in%c(2), 1)
+
 # 6177-0.0	226928	Categorical (multiple)
 dat$mediblood2 <- 0
-dat$mediblood2 <- replace(dat$mediblood2, dat$'V6177-0.0'%in%c(-7,1,3), 0)
+dat$mediblood2 <- replace(dat$mediblood2, dat$'V6177-0.0'%in%c(-7,1,3,4,5), -1)
 dat$mediblood2 <- replace(dat$mediblood2, dat$'V6177-0.0'%in%c(-1, -3), NA)
 dat$mediblood2 <- replace(dat$mediblood2, dat$'V6177-0.0'%in%c(2), 1)
+
+# 6177-0.1	226928	Categorical (multiple)
+dat$mediblood4 <- 0
+dat$mediblood4 <- replace(dat$mediblood4, dat$'V6177-0.1'%in%c(-7,1,3,4,5), -1)
+dat$mediblood4 <- replace(dat$mediblood4, dat$'V6177-0.1'%in%c(-1, -3), NA)
+dat$mediblood4 <- replace(dat$mediblood4, dat$'V6177-0.1'%in%c(2), 1)
+
+# 6177-0.2	226928	Categorical (multiple)
+dat$mediblood7 <- 0
+dat$mediblood7 <- replace(dat$mediblood7, dat$'V6177-0.2'%in%c(-7,1,3,4,5), -1)
+dat$mediblood7 <- replace(dat$mediblood7, dat$'V6177-0.2'%in%c(-1, -3), NA)
+dat$mediblood7 <- replace(dat$mediblood7, dat$'V6177-0.2'%in%c(2), 1)
 
 
 

@@ -4,6 +4,7 @@ logs/*
 results/*
 reports/*
 run/*
+figures/*
 *.RData
 *.Rout
 *.R
